@@ -1,0 +1,43 @@
+
+@import '~@/style/mixin.less';
+
+.msg{
+  .self-center();
+  background-color: aqua;
+  animation-name: identifier;
+  animation-fill-mode: both;
+  padding:10px;
+  border-radius: 5px;
+  i{
+    margin-right: 10px;
+    font-size: 30px;
+  }
+  span{
+    vertical-align: super;
+  }
+}
+
+@keyframes identifier {
+  0%{
+    opacity: 0;
+    transfrom:translate( -50%,-50%)
+  }
+
+  25%{
+    opacity: 1;
+    transform:translate(-50%,calc(-50% - 100px))
+  }
+
+  50%{
+    opacity: 1;
+    transform:translate(-50%,calc(-50% - 150px))
+  }
+  75%{
+    opacity: 1;
+    transform:translate(-50%,calc(-50% - 150px))
+  }
+  100%{
+    opacity: 0;
+    transform:translate(-50%,calc(-50% - 150px))
+  }
+}

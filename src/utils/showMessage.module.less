@@ -3,11 +3,14 @@
 
 .msg{
   .self-center();
-  background-color: aqua;
+  // background-color:#00BFFF;
   animation-name: identifier;
   animation-fill-mode: both;
   padding:10px;
   border-radius: 5px;
+  color: #fff;
+  font-weight: bolder;
+  white-space: nowrap;
   i{
     margin-right: 10px;
     font-size: 30px;
@@ -28,14 +31,6 @@
     transform:translate(-50%,calc(-50% - 100px))
   }
 
-  50%{
-    opacity: 1;
-    transform:translate(-50%,calc(-50% - 150px))
-  }
-  75%{
-    opacity: 1;
-    transform:translate(-50%,calc(-50% - 150px))
-  }
   100%{
     opacity: 0;
     transform:translate(-50%,calc(-50% - 150px))

@@ -1,34 +1,37 @@
-
-import Home from '@/views/Home';
-import About from '@/views/About';
-import Blog from '@/views/Blog';
-import Project from '@/views/Project';
-import Message from '@/views/Messege';
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gaoluo
+ * @Date: 2021-03-18 20:29:20
+ * @LastEditors: gaoluo
+ * @LastEditTime: 2021-07-10 14:13:59
+ * @FilePath: /myblog/src/router/routes.js
+ */
 
 export default [
   {
-    name:'Home',
+    name: 'Home',
     path: '/',
-    component: Home
+    component: () =>  import('@/views/Home') 
   },
   {
-    name:'About',
+    name: 'About',
     path: '/about',
-    component: About
+    component: () =>  import('@/views/About') 
   },
   {
-    name:'Blog',
+    name: 'Blog',
     path: '/blog',
-    component: Blog
+    component: () =>  import('@/views/Blog') 
   },
   {
-    name:'Project',
+    name: 'Project',
     path: '/project',
-    component: Project
+    component: () =>  import('@/views/Project') 
   },
   {
-    name:'Message',
+    name: 'Message',
     path: '/message',
-    component: Message
+    component: () =>  import('@/views/Message') 
   }
 ]

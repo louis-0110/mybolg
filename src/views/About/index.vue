@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:56
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-06-04 11:34:58
+ * @LastEditTime: 2021-07-10 15:31:11
  * @FilePath: /myblog/src/views/About/index.vue
 -->
 <template>
@@ -23,14 +23,13 @@ export default {
     };
   },
   methods: {
-    getName() {
-      this.$message( "恭喜你，这是一条成功消息","message",2000);
-      // getApi({
-      //   access_token: "smMo1kdJ3v7-qlfs1FJEhUpDp9lMjIzR",
-      //   phone: 16655021802,
-      // }).then((res) => {
-      //   console.log("++++", res);
-      // });
+   async getName() {
+    const data = await getApi()
+    console.log(data);
+      this.$message({
+        content: "恭喜你，这是一条成功消息!",
+        duration: 2000,
+      });
     },
   },
 };

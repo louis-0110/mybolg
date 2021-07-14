@@ -1,8 +1,17 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gaoluo
+ * @Date: 2021-03-18 03:02:55
+ * @LastEditors: gaoluo
+ * @LastEditTime: 2021-07-12 00:05:54
+ * @FilePath: /myblog/src/components/SiteAside/Menu/index.vue
+-->
 <template>
   <nav class="menu-container">
     <RouterLink
     :exact="item.exact"
-      :to="{name:item.name}"
+      :to="{path:item.path}"
       v-for="item in items"
       :key="item.name"
       active-class="selected"
@@ -37,30 +46,35 @@ export default {
     return {
       items: [
         {
+          path:'/',
           name: "Home",
           title: "首页",
           icon: "home",
           exact:true
         },
         {
+          path:'/blog',
           name: "Blog",
           title: "文章",
           icon: "blog",
           exact:true,
         },
         {
+          path:'/about',
           name: "About",
           title: "关于我",
           icon: "about",
           exact:false
         },
         {
+          path:'/project',
           name: "Project",
           title: "项目 & 效果",
           icon: "code",
           exact:false
         },
         {
+          path:'/message',
           name: "Message",
           title: "留言板",
           icon: "message",

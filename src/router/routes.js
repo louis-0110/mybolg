@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:29:20
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-10 14:13:59
+ * @LastEditTime: 2021-07-13 14:27:00
  * @FilePath: /myblog/src/router/routes.js
  */
 
@@ -12,26 +12,46 @@ export default [
   {
     name: 'Home',
     path: '/',
-    component: () =>  import('@/views/Home') 
+    meta: { 
+      title:'首页'
+     },
+    component: () => import('@/views/Home')
   },
   {
-    name: 'About',
+    name:'About',
     path: '/about',
-    component: () =>  import('@/views/About') 
+    meta: { 
+      title:'关于',
+     },
+    component: () => import('@/views/About'),
   },
   {
     name: 'Blog',
     path: '/blog',
-    component: () =>  import('@/views/Blog') 
+    meta: { 
+      title:'文章',
+     },
+    component: () => import('@/views/Blog')
   },
   {
     name: 'Project',
     path: '/project',
-    component: () =>  import('@/views/Project') 
+    meta: { 
+      title:'项目&效果',
+     },
+    component: () => import('@/views/Project')
   },
   {
     name: 'Message',
     path: '/message',
-    component: () =>  import('@/views/Message') 
+    meta: { 
+      title:'留言板',
+     },
+    component: () => import('@/views/Message')
+  }, 
+  {
+    name: '404',
+    path: '*',
+    component: () => import('@/views/404')
   }
 ]

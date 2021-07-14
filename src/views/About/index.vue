@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:56
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-10 15:31:11
+ * @LastEditTime: 2021-07-13 15:56:10
  * @FilePath: /myblog/src/views/About/index.vue
 -->
 <template>
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import getApi from "@/api/test.js";
 export default {
   data() {
     return {
@@ -23,8 +22,8 @@ export default {
     };
   },
   methods: {
-   async getName() {
-    const data = await getApi()
+  getName() {
+    
     console.log(data);
       this.$message({
         content: "恭喜你，这是一条成功消息!",

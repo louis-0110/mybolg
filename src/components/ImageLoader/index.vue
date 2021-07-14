@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gaoluo
+ * @Date: 2021-03-17 17:20:25
+ * @LastEditors: gaoluo
+ * @LastEditTime: 2021-07-13 21:05:28
+ * @FilePath: /myblog/src/components/ImageLoader/index.vue
+-->
 <template>
   <div class="image-loader-container">
     <img class="placeholder" :src="placeholder" v-if="!everyEnd" />
@@ -42,7 +51,7 @@ export default {
     },
     duration: {
       type: Number,
-      default: 30000,
+      default: 3000,
     },
   },
 };

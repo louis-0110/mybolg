@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gaoluo
+ * @Date: 2021-03-18 17:32:21
+ * @LastEditors: gaoluo
+ * @LastEditTime: 2021-07-13 19:06:54
+ * @FilePath: /myblog/src/components/SiteAside/index.vue
+-->
 <template>
   <div class="site-aside-container">
     <div class="avatar">
@@ -45,10 +54,8 @@ export default {
   }
   footer{
     width: 100%;
+    margin-top:100px;
     font-size: 14px;
-    position: absolute;
-    bottom: 20px;
-    left: 0;
   }
 }
 

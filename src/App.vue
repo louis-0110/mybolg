@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: gaoluo
+ * @Date: 2021-03-16 19:21:34
+ * @LastEditors: gaoluo
+ * @LastEditTime: 2021-07-13 17:13:47
+ * @FilePath: /myblog/src/App.vue
+-->
 <template>
   <div id="app">
     <Layout>
@@ -8,7 +17,9 @@
       </template>
       <template #default>
         <div class="main">
-         <router-view></router-view>
+          <keep-alive include="Home">
+            <router-view></router-view>
+          </keep-alive>
         </div>
       </template>
     </Layout>
@@ -32,12 +43,15 @@ export default {
 @import '~@/style/var.less';
   #app{
     .self-fill(fixed);
+    min-width: 960px;
     aside{
       height: 100%;
       background:@dark;
       color:@lightWords;
     }
     .main{
+      width:100%;
+      height: 100%;
       background-color: lightskyblue;
     }
   }

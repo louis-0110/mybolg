@@ -4,40 +4,40 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:37
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-13 19:08:20
+ * @LastEditTime: 2021-07-15 23:26:48
  * @FilePath: /myblog/src/views/Home/index.vue
 -->
 <template>
-  <div class="home-container" ref="container" @wheel="handleWheel">
+  <div class="home-container" ref="container" @wheel="handleWheel" v-loading='isLoading'>
     <section
       class="slideshow-wrap"
       :style="{ 'margin-top': marginTop }"
       @transitionend="transitionEnd = true"
     >
-      <slideshowItem
-        :item="banner"
-        v-for="banner in banners"
-        :key="banner.id"
-      />
+        <slideshowItem
+          :item="banner"
+          v-for="banner in banners"
+          :key="banner.id"
+        />
     </section>
     <div class="indicator">
       <ul>
         <li
           :class="{
-            active:i == index
-            }"
+            active: i == index,
+          }"
           @click="switchTo(i)"
           v-for="(banner, i) in banners"
           :key="i"
         ></li>
       </ul>
     </div>
-    <div class="arrow-up arrow" @click="switchTo(index-1)" v-show="index > 0">
+    <div class="arrow-up arrow" @click="switchTo(index - 1)" v-show="index > 0">
       <icon type="arrowUp" />
     </div>
     <div
       class="arrow-down arrow"
-      @click="switchTo(index+1)"
+      @click="switchTo(index + 1)"
       v-show="index < banners.length - 1"
     >
       <icon type="arrowDown" />
@@ -61,49 +61,74 @@ export default {
       index: 0,
       clientHeight: 0,
       transitionEnd: true,
+      isLoading:true
     };
   },
+  //计算属性
   computed: {
     marginTop() {
-      console.log("margintop");
       return -this.index * this.clientHeight + "px";
     },
   },
+  //keep-alive 组件活跃周期函数
   activated() {
-    window.document.addEventListener("wheel", this.handleWheel);
+    console.log('home is activated')
   },
   deactivated() {
     console.log("deactivated");
-    window.removeEventListener('resize',this.handleResize)
+    window.document.removeEventListener("resize", this.handleResize);
   },
+  // 生命周期函数
   async created() {
     this.banners = await getBanners();
+    this.isLoading = false;
   },
   mounted() {
-    console.log();
     const container = this.$refs.container;
     this.clientHeight = container.clientHeight;
-    window.addEventListener('resize',this.handleResize)
+    window.addEventListener("resize", this.handleResize);
   },
+  // 组件函数
   methods: {
+    /**
+     * @description: 跳转图片
+     * @author: gaoluo
+     * @param {*} i 图片下标
+     * @return {*}
+     */
+
     switchTo(i) {
       console.log(i);
       this.transitionEnd = false;
       this.index = i;
     },
+    /**
+     * @description: 滚动事件，滚动翻页
+     * @author: gaoluo
+     * @param {*} e
+     * @return {*}
+     */
+
     handleWheel(e) {
       if (!this.transitionEnd) return;
-      if (e.deltaY < -10 && this.index > 0) {
+      if (e.deltaY < -20 && this.index > 0) {
         console.log("向上翻页");
         this.switchTo(this.index - 1);
-      } else if (e.deltaY > 10 && this.index < this.banners.length - 1) {
+      } else if (e.deltaY > 20 && this.index < this.banners.length - 1) {
         console.log("向下翻页");
         this.switchTo(this.index + 1);
       }
     },
-    handleResize(){
+    /**
+     * @description: 窗口resize事件函数,获取视口高度
+     * @author: gaoluo
+     * @param {*}
+     * @return {*}
+     */
+
+    handleResize() {
       this.clientHeight = this.$refs.container.clientHeight;
-    }
+    },
   },
 };
 </script>

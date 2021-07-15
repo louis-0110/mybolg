@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-16 19:21:34
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-13 17:13:47
+ * @LastEditTime: 2021-07-15 08:23:02
  * @FilePath: /myblog/src/App.vue
 -->
 <template>
@@ -17,7 +17,7 @@
       </template>
       <template #default>
         <div class="main">
-          <keep-alive include="Home">
+          <keep-alive include="Home" exclude="slideshowItem">
             <router-view></router-view>
           </keep-alive>
         </div>

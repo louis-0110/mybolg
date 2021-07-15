@@ -13,3 +13,16 @@
   left: 0;
   top: 0;
 }
+
+.run-circle(@dura: 2s){
+  animation: circle @dura linear infinite;
+}
+
+@keyframes  circle{
+  0%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}

@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-16 19:21:34
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-06-04 00:24:53
+ * @LastEditTime: 2021-07-15 21:40:39
  * @FilePath: /myblog/src/main.js
  */
 
@@ -18,6 +18,11 @@ import router from '@/router'
 import msg from './utils/showMessages.js';
 
 Vue.prototype.$message = msg;
+
+import vLoading from '@/directives/loading.js'
+
+Vue.directive('loading',vLoading);
+
 
 var vm = new Vue({
   router,

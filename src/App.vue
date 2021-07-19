@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-16 19:21:34
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-15 08:23:02
+ * @LastEditTime: 2021-07-19 10:00:30
  * @FilePath: /myblog/src/App.vue
 -->
 <template>
@@ -52,7 +52,7 @@ export default {
     .main{
       width:100%;
       height: 100%;
-      background-color: lightskyblue;
+      // background-color: lightskyblue;
     }
   }
 </style>

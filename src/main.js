@@ -4,10 +4,10 @@
  * @Autor: gaoluo
  * @Date: 2021-03-16 19:21:34
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-15 21:40:39
+ * @LastEditTime: 2021-07-16 20:37:04
  * @FilePath: /myblog/src/main.js
  */
-
+import '@/mockjs/index.js';
 import Vue from 'vue';
 import App from './App.vue';
 import '@/style/global.less';
@@ -21,11 +21,12 @@ Vue.prototype.$message = msg;
 
 import vLoading from '@/directives/loading.js'
 
-Vue.directive('loading',vLoading);
+Vue.directive('loading', vLoading);
 
 
 var vm = new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
+
 

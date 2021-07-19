@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-13 15:12:25
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-15 23:33:16
+ * @LastEditTime: 2021-07-16 17:51:13
  * @FilePath: /myblog/src/views/Home/slideshowItem.vue
 -->
 <template>
@@ -77,23 +77,18 @@ export default {
     this.titleWidth = this.$refs.title.getBoundingClientRect().width;
     this.descriptionWidth = this.$refs.description.clientWidth;
     this.setSize();
-    console.log(this.center.x,this.center.y);
     this.mouseX = this.center.x;
     this.mouseY = this.center.y;
     window.addEventListener("resize", this.setSize);
-    console.log("slideshowItem is mounted");
   },
   activated() {
-    console.log("slideshowItem is activated");
     window.addEventListener("resize", this.setSize);
   },
   deactivated() {
-    console.log("slideshowItem is deactivated");
     window.removeEventListener("resize", this.setSize);
   },
   methods: {
     showTitle() {
-      console.log("图片➕载完成✅！");
       this.$refs.title.style.width = "0px";
       this.$refs.title.style.opacity = 1;
       this.$refs.title.clientWidth;
@@ -121,7 +116,6 @@ export default {
         width: this.$refs.container.clientWidth,
         height: this.$refs.container.clientHeight,
       };
-      console.log(this.imageSize, this.containerSize);
     },
     /**
      * @description: 获取鼠标位置

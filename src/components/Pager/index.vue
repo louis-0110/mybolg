@@ -34,25 +34,26 @@
 <script>
 export default {
   props: {
-    current: {
+    current: { //当前页码
       type: Number,
       default: 1,
     },
-    total: {
+    total: { //总数据数
       type: Number,
       default: 0,
     },
-    limit: {
+    limit: {  //一页显示多少条数据
       type: Number,
       default: 10,
     },
-    visibleNumber: {
+    visibleNumber: { //总页码数
       type: Number,
       default: 9,
     },
   },
   methods: {
     pageChange(newPage) {
+      console.log(newPage)
       if (newPage < 1) {
         newPage = 1;
       }

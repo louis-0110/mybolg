@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-06-02 23:43:08
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-12 00:36:03
+ * @LastEditTime: 2021-07-16 23:35:53
  * @FilePath: /myblog/vue.config.js
  */
 
@@ -24,13 +24,7 @@ module.exports={
   //     .set('views', resolve('src/views'))
   //     // .set('network', resolve('src/network'))
   // },
-  devServer:{
-    proxy:{
-      'wpmapp':{
-        target:"https://www.ship1024.com"
-      }
-    }
-    
+  devServer:{    
   },
   publicPath : '/'
 }

@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:37
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-15 23:26:48
+ * @LastEditTime: 2021-07-16 17:51:37
  * @FilePath: /myblog/src/views/Home/index.vue
 -->
 <template>
@@ -16,7 +16,7 @@
     >
         <slideshowItem
           :item="banner"
-          v-for="banner in banners"
+          v-for="banner in data"
           :key="banner.id"
         />
     </section>
@@ -27,7 +27,7 @@
             active: i == index,
           }"
           @click="switchTo(i)"
-          v-for="(banner, i) in banners"
+          v-for="(banner, i) in data"
           :key="i"
         ></li>
       </ul>
@@ -38,7 +38,7 @@
     <div
       class="arrow-down arrow"
       @click="switchTo(index + 1)"
-      v-show="index < banners.length - 1"
+      v-show="index < data.length - 1"
     >
       <icon type="arrowDown" />
     </div>
@@ -49,19 +49,19 @@
 import icon from "@/components/Icon";
 import { getBanners } from "@/api/test.js";
 import slideshowItem from "@/views/Home/slideshowItem";
+import fetchData from "@/mixins/fetchData.js"
 export default {
   name: "Home",
   components: {
     icon,
     slideshowItem,
   },
+  mixins:[fetchData([])],
   data() {
     return {
-      banners: [],
       index: 0,
       clientHeight: 0,
       transitionEnd: true,
-      isLoading:true
     };
   },
   //计算属性
@@ -75,13 +75,7 @@ export default {
     console.log('home is activated')
   },
   deactivated() {
-    console.log("deactivated");
     window.document.removeEventListener("resize", this.handleResize);
-  },
-  // 生命周期函数
-  async created() {
-    this.banners = await getBanners();
-    this.isLoading = false;
   },
   mounted() {
     const container = this.$refs.container;
@@ -90,15 +84,16 @@ export default {
   },
   // 组件函数
   methods: {
+   async fetchData(){
+      return await getBanners()
+    },
     /**
      * @description: 跳转图片
      * @author: gaoluo
      * @param {*} i 图片下标
      * @return {*}
      */
-
     switchTo(i) {
-      console.log(i);
       this.transitionEnd = false;
       this.index = i;
     },
@@ -112,10 +107,8 @@ export default {
     handleWheel(e) {
       if (!this.transitionEnd) return;
       if (e.deltaY < -20 && this.index > 0) {
-        console.log("向上翻页");
         this.switchTo(this.index - 1);
-      } else if (e.deltaY > 20 && this.index < this.banners.length - 1) {
-        console.log("向下翻页");
+      } else if (e.deltaY > 20 && this.index < this.data.length - 1) {
         this.switchTo(this.index + 1);
       }
     },

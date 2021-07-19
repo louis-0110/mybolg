@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:56
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-13 15:56:10
+ * @LastEditTime: 2021-07-18 09:58:31
  * @FilePath: /myblog/src/views/About/index.vue
 -->
 <template>
@@ -23,8 +23,6 @@ export default {
   },
   methods: {
   getName() {
-    
-    console.log(data);
       this.$message({
         content: "恭喜你，这是一条成功消息!",
         duration: 2000,

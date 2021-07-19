@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:29:20
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-13 14:27:00
+ * @LastEditTime: 2021-07-19 10:32:58
  * @FilePath: /myblog/src/router/routes.js
  */
 
@@ -31,6 +31,11 @@ export default [
     meta: { 
       title:'文章',
      },
+    component: () => import('@/views/Blog')
+  },
+  {
+    name: 'BlogCategory',
+    path: '/blog/cate/:categoryId',
     component: () => import('@/views/Blog')
   },
   {

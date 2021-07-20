@@ -4,26 +4,26 @@
  * @Autor: gaoluo
  * @Date: 2021-07-16 17:30:51
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-19 09:27:03
+ * @LastEditTime: 2021-07-19 19:33:20
  * @FilePath: /myblog/src/mockjs/blog.js
  */
 
 import qs from 'querystring'
 import Mock from "mockjs";
 
-Mock.mock("blogListNav", function () {
-  return {
+Mock.mock("blogListNav", "get",
+  {
     code: 200,
     msg: '',
-    data: [{
-      name: "张飞"
-    }, {
-      name: "关羽"
+    "data|10-20": [{
+      "id|+1":1,
+      name: "分类@id",
+      "articleCount|0-300":0,
+      "totalNum|10-30": 10
     }],
-  };
-});
+  }
+);
 
-console.log('adsfa')
 Mock.mock(/^blog(\?.+)?$/, 'get',function (options) {
   const query = qs.parse(options.url.split('?')[1])
   return Mock.mock({

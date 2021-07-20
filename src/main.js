@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-03-16 19:21:34
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-16 20:37:04
+ * @LastEditTime: 2021-07-19 17:09:19
  * @FilePath: /myblog/src/main.js
  */
 import '@/mockjs/index.js';
@@ -28,5 +28,4 @@ var vm = new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
-
 

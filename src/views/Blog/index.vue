@@ -4,15 +4,15 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:42:14
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-19 09:16:44
+ * @LastEditTime: 2021-07-19 23:13:34
  * @FilePath: /myblog/src/views/Blog/index.vue
 -->
 <template>
   <div class="blog-cantainer">
-		<Layout v-loading>
+		<Layout>
 			<BlogList/>
 			<template #right>
-				<BlogCategory v-loading></BlogCategory>
+				<BlogCategory></BlogCategory>
 			</template>
 		</Layout>
 	</div>
@@ -32,13 +32,6 @@ export default {
     return {
 		};
   },
-  async created() {
-    
-    
-  },
-  methods: {
-	
-	},
 };
 </script>
 

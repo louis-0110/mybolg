@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-18 22:10:45
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-19 13:34:06
+ * @LastEditTime: 2021-07-19 17:50:33
  * @FilePath: /myblog/src/views/Blog/components/BlogList.vue
 -->
 <template>
@@ -74,7 +74,6 @@ export default {
   watch: {
     async $route() {
       this.isLoading = true;
-      console.log(this.$refs.container)
       this.$refs.container.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false;
@@ -120,7 +119,6 @@ export default {
   padding: 20px;
   padding-top: 0px;
   overflow-y: scroll;
-  position: relative;
   scroll-behavior: smooth;
   #article-wrap {
     .article {

@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-06-02 21:03:03
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-18 22:36:00
+ * @LastEditTime: 2021-07-20 14:33:54
  * @FilePath: /myblog/src/api/test.js
  */
 
@@ -24,13 +24,13 @@ const instanceMock = axios.create({
 });
 
 instance.interceptors.response.use(config => {
-  if(config.data.code === 200 ){
+  if (config.data.code === 200) {
     return config.data.data;
-  }else{
+  } else {
     Vue.prototype.$message({
-      content:'获取数据失败',
-      type:'dellete',
-      duration:3000
+      content: '获取数据失败',
+      type: 'dellete',
+      duration: 3000
     })
   }
 }, error => {
@@ -38,13 +38,13 @@ instance.interceptors.response.use(config => {
 });
 
 instanceMock.interceptors.response.use(config => {
-  if(config.data.code === 200 ){
+  if (config.data.code === 200) {
     return config.data.data;
-  }else{
+  } else {
     Vue.prototype.$message({
-      content:'获取数据失败',
-      type:'dellete',
-      duration:3000
+      content: '获取数据失败',
+      type: 'dellete',
+      duration: 3000
     })
   }
 }, error => {
@@ -58,10 +58,16 @@ export async function getBanners(params = {}) {
   return res;
 }
 
-export async function getBlog(params ={}){
-	const res = await instanceMock.get('blog',{
-		params
-	})
-  console.log(res);
-return res;
+export async function getBlog(params = {}) {
+  const res = await instanceMock.get('blog', {
+    params
+  })
+  return res;
+}
+
+export async function getCategory(params = {}) {
+  const res = await instanceMock.get('blogListNav', {
+    params
+  })
+  return res
 }

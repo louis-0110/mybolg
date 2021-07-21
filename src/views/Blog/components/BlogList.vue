@@ -4,30 +4,32 @@
  * @Autor: gaoluo
  * @Date: 2021-07-18 22:10:45
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-19 17:50:33
+ * @LastEditTime: 2021-07-20 19:28:25
  * @FilePath: /myblog/src/views/Blog/components/BlogList.vue
 -->
 <template>
   <div class="blog-list-container" v-loading="isLoading" ref="container">
-    <ul id="article-wrap" >
+    <ul id="article-wrap">
       <li class="article" v-for="item in list" :key="item.id">
-        <div class="article-img" v-if="item.thumb">
-          <a href="">
-            <img :src="item.thumb" :alt="item.title" class="article-img" />
-          </a>
-        </div>
-        <div class="content">
-          <h2 class="article-title">{{ item.title }}</h2>
-          <div class="aside">
-            <span class="article-date">日期：{{ item.createDate }}</span>
-            <span class="scanNumber">浏览量：{{ item.scanNumber }}</span>
-            <span class="commentNumber">评论：{{ item.commentNumber }}</span>
-            <span class="" :data-id="item.category.id">{{
-              item.category.name
-            }}</span>
+        <router-link :to="{ name: 'ArticleDetail', params: { id: item.id } }">
+          <div class="article-img" v-if="item.thumb">
+            <a href="">
+              <img :src="item.thumb" :alt="item.title" class="article-img" />
+            </a>
           </div>
-          <p class="article-description">{{ item.description }}</p>
-        </div>
+          <div class="content">
+            <h2 class="article-title">{{ item.title }}</h2>
+            <div class="aside">
+              <span class="article-date">日期：{{ item.createDate }}</span>
+              <span class="scanNumber">浏览量：{{ item.scanNumber }}</span>
+              <span class="commentNumber">评论：{{ item.commentNumber }}</span>
+              <span class="" :data-id="item.category.id">{{
+                item.category.name
+              }}</span>
+            </div>
+            <p class="article-description">{{ item.description }}</p>
+          </div>
+        </router-link>
       </li>
     </ul>
     <div class="pager-wrap" v-if="data.total > 0">
@@ -68,9 +70,7 @@ export default {
       return +this.$route.query.page || 1;
     },
   },
-  mounted() {
-    
-  },
+  mounted() {},
   watch: {
     async $route() {
       this.isLoading = true;

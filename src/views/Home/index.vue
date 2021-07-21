@@ -4,21 +4,22 @@
  * @Autor: gaoluo
  * @Date: 2021-03-18 20:16:37
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-16 17:51:37
+ * @LastEditTime: 2021-07-21 23:17:46
  * @FilePath: /myblog/src/views/Home/index.vue
 -->
 <template>
-  <div class="home-container" ref="container" @wheel="handleWheel" v-loading='isLoading'>
+  <div
+    class="home-container"
+    ref="container"
+    @wheel="handleWheel"
+    v-loading="isLoading"
+  >
     <section
       class="slideshow-wrap"
-      :style="{ 'margin-top': marginTop }"
+      :style="translate"
       @transitionend="transitionEnd = true"
     >
-        <slideshowItem
-          :item="banner"
-          v-for="banner in data"
-          :key="banner.id"
-        />
+      <slideshowItem :item="banner" v-for="banner in data" :key="banner.id" />
     </section>
     <div class="indicator">
       <ul>
@@ -49,14 +50,14 @@
 import icon from "@/components/Icon";
 import { getBanners } from "@/api/test.js";
 import slideshowItem from "@/views/Home/slideshowItem";
-import fetchData from "@/mixins/fetchData.js"
+import fetchData from "@/mixins/fetchData.js";
 export default {
   name: "Home",
   components: {
     icon,
     slideshowItem,
   },
-  mixins:[fetchData([])],
+  mixins: [fetchData([])],
   data() {
     return {
       index: 0,
@@ -69,10 +70,15 @@ export default {
     marginTop() {
       return -this.index * this.clientHeight + "px";
     },
+    translate() {
+      return {
+        transform: `translateY(${this.marginTop})`,
+      };
+    },
   },
   //keep-alive 组件活跃周期函数
   activated() {
-    console.log('home is activated')
+    console.log("home is activated");
   },
   deactivated() {
     window.document.removeEventListener("resize", this.handleResize);
@@ -84,8 +90,8 @@ export default {
   },
   // 组件函数
   methods: {
-   async fetchData(){
-      return await getBanners()
+    async fetchData() {
+      return await getBanners();
     },
     /**
      * @description: 跳转图片
@@ -106,9 +112,9 @@ export default {
 
     handleWheel(e) {
       if (!this.transitionEnd) return;
-      if (e.deltaY < -20 && this.index > 0) {
+      if (e.deltaY < -30 && this.index > 0) {
         this.switchTo(this.index - 1);
-      } else if (e.deltaY > 20 && this.index < this.data.length - 1) {
+      } else if (e.deltaY > 30 && this.index < this.data.length - 1) {
         this.switchTo(this.index + 1);
       }
     },
@@ -137,7 +143,7 @@ export default {
   .slideshow-wrap {
     width: 100%;
     height: 100%;
-    transition: all ease-out 1s;
+    transition: all cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s;
   }
   .arrow {
     .self-center();

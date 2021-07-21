@@ -6,45 +6,38 @@
         <span>574169815</span>
       </a>
       <div class="pop">
-        <img
-          src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F00%2F00%2F00569e439fe7c11.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618595880&t=27981918dee7b2cb926856800f06de2f"
-        />
+        <img src="https://i.loli.net/2021/07/21/zjTpBRUGgXZhEOc.jpg" />
       </div>
     </li>
-     <li>
-      <a href="https://github.com/MGRookie" target='_blank' rel="noopener noreferrer">
+    <li>
+      <a
+        href="https://github.com/MGRookie"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon type="github"></Icon>
         <span>MGRookie</span>
       </a>
-      <div class="pop">
-        <img
-          src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F00%2F00%2F00569e439fe7c11.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618595880&t=27981918dee7b2cb926856800f06de2f"
-        />
-      </div>
+      <div class="pop">github</div>
     </li>
-     <li>
-      <a href="mailto:574169815@qq.com" target='_blank' rel="noopener noreferrer">
+    <li>
+      <a
+        href="mailto:574169815@qq.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Icon type="email"></Icon>
         <span>574169815@qq.com</span>
       </a>
-      <div class="pop">
-        <img
-          src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F00%2F00%2F00569e439fe7c11.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618595880&t=27981918dee7b2cb926856800f06de2f"
-        />
-      </div>
+      <div class="pop">Email</div>
     </li>
-     <li>
+    <li>
       <a href="#">
         <Icon type="wechat"></Icon>
         <span>GL74169815</span>
       </a>
-      <div class="pop">
-        <img
-          src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F00%2F00%2F00%2F00569e439fe7c11.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618595880&t=27981918dee7b2cb926856800f06de2f"
-        />
-      </div>
+      <div class="pop">weChat</div>
     </li>
-
   </ul>
 </template>
 
@@ -57,7 +50,7 @@ export default {
 };
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .contact-container {
   width: 100%;
   padding: 20px;
@@ -70,12 +63,12 @@ export default {
     position: relative;
     &:hover {
       .pop {
-        transform: scaleY(1);
+        transform: scale(1);
       }
     }
     a {
       font-size: 24px;
-      cursor:pointer;
+      cursor: pointer;
       span {
         margin-left: 8px;
         font-size: 14px;
@@ -83,15 +76,15 @@ export default {
       }
     }
     .pop {
-      padding: 10px 15px;
+      padding: 0 10px;
       background-color: #fff;
       border-radius: 5px;
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: all .3s;
+      transform-origin: bottom right;
+      transition: all 0.3s;
       position: absolute;
       bottom: @itemHeight + 5;
-      left: 0;
+      left: 30px;
+      transform: scale(0) translateX(50%);
       &::after {
         content: "";
         display: block;
@@ -104,8 +97,10 @@ export default {
         left: 50%;
       }
       img {
+        padding: 10px 0;
         width: 150px;
         height: 150px;
+        display: block;
       }
     }
   }

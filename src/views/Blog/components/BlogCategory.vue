@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-18 22:10:17
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-20 14:33:25
+ * @LastEditTime: 2021-08-05 23:21:23
  * @FilePath: /myblog/src/views/Blog/components/BlogCategory.vue
 -->
 <template>
@@ -82,7 +82,6 @@ export default {
 
 <style lang="less" scoped>
 .bolg-category-container {
-  // background: coral;
   width: 230px;
   height: 100%;
   padding: 20px;

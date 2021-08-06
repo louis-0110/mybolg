@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-06-02 21:03:03
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-20 14:33:54
+ * @LastEditTime: 2021-07-27 09:56:30
  * @FilePath: /myblog/src/api/test.js
  */
 
@@ -51,6 +51,11 @@ instanceMock.interceptors.response.use(config => {
   return Promise.reject(error);
 });
 
+/**
+ * 获取首页图片信息
+ * @param {*} params 
+ * @returns 
+ */
 export async function getBanners(params = {}) {
   const res = await instance.get('getBanners', {
     params
@@ -58,6 +63,11 @@ export async function getBanners(params = {}) {
   return res;
 }
 
+/**
+ * 获取博客列表
+ * @param {*} params 
+ * @returns 
+ */
 export async function getBlog(params = {}) {
   const res = await instanceMock.get('blog', {
     params
@@ -65,9 +75,43 @@ export async function getBlog(params = {}) {
   return res;
 }
 
+/**
+ * 获取导航栏
+ * @param {*} params 
+ * @returns 
+ */
 export async function getCategory(params = {}) {
   const res = await instanceMock.get('blogListNav', {
     params
   })
   return res
+}
+
+/**
+ * 获取文章
+ * @param {}} params 
+ * @returns 
+ */
+export async function getArticle(params = {}) {
+  const res = await instanceMock.get('getArticle', {
+    params
+  })
+  return res
+}
+
+/**
+ * 提交评论
+ * @param {*} data 
+ * @returns 
+ */
+export async function postComment(data = {}) {
+  return await instanceMock.post('postComment',
+    data
+  )
+}
+
+export async function getComments(params = { limit: 10, page: 1, id: -1 }) {
+  return await instanceMock.get('comment', {
+    params
+  })
 }

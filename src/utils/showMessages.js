@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description: 提示框
  * @Version: 1.0
  * @Autor: gaoluo
  * @Date: 2021-06-03 23:07:37
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-10 15:30:04
+ * @LastEditTime: 2021-08-04 20:00:14
  * @FilePath: /myblog/src/utils/showMessages.js
  */
 
@@ -41,7 +41,7 @@ export default function ({ content, type = 'success', duration = 1500 }) {
     case 'prompt':
       backColor = '#00BFFF';
       break;
-    default: 
+    default:
       backColor = '#52c41a';
       break;
   }

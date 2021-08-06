@@ -4,19 +4,19 @@
  * @Autor: gaoluo
  * @Date: 2021-07-18 22:10:45
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-20 19:28:25
+ * @LastEditTime: 2021-08-05 23:54:18
  * @FilePath: /myblog/src/views/Blog/components/BlogList.vue
 -->
 <template>
   <div class="blog-list-container" v-loading="isLoading" ref="container">
     <ul id="article-wrap">
       <li class="article" v-for="item in list" :key="item.id">
+        <div class="article-img" v-if="item.thumb">
+          <router-link :to="{ name: 'ArticleDetail', params: { id: item.id } }">
+            <img :src="item.thumb" :alt="item.title" class="article-img" />
+          </router-link>
+        </div>
         <router-link :to="{ name: 'ArticleDetail', params: { id: item.id } }">
-          <div class="article-img" v-if="item.thumb">
-            <a href="">
-              <img :src="item.thumb" :alt="item.title" class="article-img" />
-            </a>
-          </div>
           <div class="content">
             <h2 class="article-title">{{ item.title }}</h2>
             <div class="aside">
@@ -48,8 +48,9 @@
 import Pager from "@/components/Pager";
 import { getBlog } from "@/api/test.js";
 import fetchData from "@/mixins/fetchData.js";
+import mainScroll from "@/mixins/mainScroll.js";
 export default {
-  mixins: [fetchData({})],
+  mixins: [fetchData({}), mainScroll("container")],
   components: { Pager },
   data() {
     return {
@@ -69,6 +70,13 @@ export default {
     page() {
       return +this.$route.query.page || 1;
     },
+  },
+  created() {
+    // this.$bus.$on("setScroll", this.goToTop);
+    // console.log("setscroll this.gototop");
+  },
+  destroyed() {
+    // this.$bus.$off("setScroll", this.goToTop);
   },
   mounted() {},
   watch: {
@@ -127,6 +135,8 @@ export default {
       padding: 10px 0;
       .article-img {
         font-size: 0;
+        display: flex;
+        align-items: center;
         img {
           width: 200px;
           height: 130px;

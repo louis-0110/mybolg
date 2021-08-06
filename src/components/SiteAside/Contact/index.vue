@@ -34,7 +34,7 @@
     <li>
       <a href="#">
         <Icon type="wechat"></Icon>
-        <span>GL74169815</span>
+        <span>G_-_-_-_-L</span>
       </a>
       <div class="pop">weChat</div>
     </li>

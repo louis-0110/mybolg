@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-16 15:59:51
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-07-20 14:31:18
+ * @LastEditTime: 2021-08-04 17:36:29
  * @FilePath: /myblog/src/views/Blog/components/RightList.vue
 -->
 <template>
@@ -15,7 +15,7 @@
         @click="handleClick({ item, $event })"
       >
         <span class="category">{{ item.name }}</span>
-        <span class="totalNum">{{ item.totalNum }}篇</span>
+        <span class="totalNum" v-if="item.totalNum">{{ item.totalNum }}篇</span>
       </div>
 
       <MyblogRightlist :list="item.children" @clickSelect="handleClick" />
@@ -29,12 +29,13 @@ export default {
   props: {
     list: {
       type: Array,
-      default: () => [],
     },
   },
   methods: {
     handleClick(item) {
+      console.log(item);
       this.$emit("clickSelect", item);
+      this.$bus.$emit("changeAnthor", item.item.anthor);
     },
   },
 };
@@ -52,11 +53,14 @@ export default {
     div {
       display: inline-block;
       padding: 0 10px;
+      border-radius: 20px;
+      &:hover {
+        background-color: rgba(245, 180, 156, 0.1);
+      }
       &.isSelect {
         color: #ff7f50;
         font-weight: bolder;
         background-color: rgba(245, 180, 156, 0.1);
-        border-radius: 20px;
       }
       .totalNum {
         margin-left: 10px;

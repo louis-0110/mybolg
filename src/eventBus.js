@@ -15,6 +15,12 @@
 /** 
  * setScroll 设置滚动条位置事件
  */
+
 import Vue from "vue";
-Vue.prototype.$bus = new Vue({})
+
+const app = new Vue({})
+
+Vue.prototype.$bus = app;
+
+export default app;
 

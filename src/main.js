@@ -19,10 +19,12 @@ import '@/eventBus.js';
 import msg from './utils/showMessages.js';
 
 Vue.prototype.$message = msg;
-
+// 自定义指令
 import vLoading from '@/directives/loading.js'
+import vLazy from '@/directives/lazy.js'
 
 Vue.directive('loading', vLoading);
+Vue.directive('lazy', vLazy)
 
 var vm = new Vue({
   router,

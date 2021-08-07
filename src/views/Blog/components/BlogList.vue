@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-18 22:10:45
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-08-05 23:54:18
+ * @LastEditTime: 2021-08-06 21:46:34
  * @FilePath: /myblog/src/views/Blog/components/BlogList.vue
 -->
 <template>
@@ -13,7 +13,7 @@
       <li class="article" v-for="item in list" :key="item.id">
         <div class="article-img" v-if="item.thumb">
           <router-link :to="{ name: 'ArticleDetail', params: { id: item.id } }">
-            <img :src="item.thumb" :alt="item.title" class="article-img" />
+            <img v-lazy="item.thumb" :alt="item.title" class="article-img" />
           </router-link>
         </div>
         <router-link :to="{ name: 'ArticleDetail', params: { id: item.id } }">
@@ -70,13 +70,6 @@ export default {
     page() {
       return +this.$route.query.page || 1;
     },
-  },
-  created() {
-    // this.$bus.$on("setScroll", this.goToTop);
-    // console.log("setscroll this.gototop");
-  },
-  destroyed() {
-    // this.$bus.$off("setScroll", this.goToTop);
   },
   mounted() {},
   watch: {

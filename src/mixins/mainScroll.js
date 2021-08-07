@@ -20,6 +20,9 @@ export default function (resName) {
       this.$bus.$off("setScroll", this.goToTop);
       this.$refs[resName].removeEventListener("scroll", this.onScroll)
     },
+		destroyed(){
+			this.$bus.$emit("mainScroll");
+		},
     methods: {
       goToTop(scrollTop) {
         this.$refs[resName].scrollTop = scrollTop

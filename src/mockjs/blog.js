@@ -4,7 +4,7 @@
  * @Autor: gaoluo
  * @Date: 2021-07-16 17:30:51
  * @LastEditors: gaoluo
- * @LastEditTime: 2021-08-04 23:12:03
+ * @LastEditTime: 2021-08-06 16:25:59
  * @FilePath: /myblog/src/mockjs/blog.js
  */
 
@@ -41,7 +41,7 @@ Mock.mock(/^blog(\?.+)?$/, 'get', function (options) {
         },
         "scanNumber|0-3000": 0,
         "commentNumber|0-300": 30,
-        "thumb|1": [Mock.Random.image("300x250", "#000", "#fff", "Random Image"), null],
+        "thumb|1": [Mock.Random.image(), Mock.Random.image(), Mock.Random.image(), Mock.Random.image()],
         createDate: '@date'
       }]
     }
